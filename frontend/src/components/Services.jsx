@@ -3,12 +3,12 @@ import { AnimatedItem } from './AnimatedItem'
 import styles from './Services.module.css'
 
 const categories = [
-  { id: 'it', title: 'IT и разработка', description: 'Разработчики, тестировщики, аналитики, DevOps — под ваш стек и проект.', image: '/images/it.svg', featured: true },
-  { id: 'accounting', title: 'Бухгалтерия и финансы', description: 'Бухгалтеры, главбухи, экономисты для учёта и отчётности.', image: '/images/accounting.svg', featured: false },
-  { id: 'construction', title: 'Строительство', description: 'Инженеры, прорабы, рабочие специальности для объектов.', image: '/images/construction.svg', featured: false },
-  { id: 'office', title: 'Офисный персонал', description: 'Администраторы, HR, секретари, помощники руководителя.', image: '/images/office.svg', featured: false },
-  { id: 'logistics', title: 'Логистика и склад', description: 'Кладовщики, водители, комплектовщики для складов и доставки.', image: '/images/logistics.svg', featured: false },
-  { id: 'other', title: 'Другие отрасли', description: 'Подбор под любые задачи: производство, торговля, услуги.', image: '/images/other.svg', featured: false },
+  { id: 'it', title: 'IT и разработка', description: 'Разработчики, тестировщики, аналитики, DevOps — под ваш стек и проект.', image: '/images/it.jpg', featured: true },
+  { id: 'accounting', title: 'Бухгалтерия и финансы', description: 'Бухгалтеры, главбухи, экономисты для учёта и отчётности.', image: '/images/accounting.jpg', featured: false },
+  { id: 'construction', title: 'Строительство', description: 'Инженеры, прорабы, рабочие специальности для объектов.', image: '/images/construction.jpg', featured: false },
+  { id: 'office', title: 'Офисный персонал', description: 'Администраторы, HR, секретари, помощники руководителя.', image: '/images/office.jpg', featured: false },
+  { id: 'logistics', title: 'Логистика и склад', description: 'Кладовщики, водители, комплектовщики для складов и доставки.', image: '/images/logistics.jpg', featured: false },
+  { id: 'other', title: 'Другие отрасли', description: 'Подбор под любые задачи: производство, торговля, услуги.', image: '/images/other.jpg', featured: false },
 ]
 
 export function Services() {
