@@ -150,6 +150,13 @@
   padding: 20px 0;
 }
 
+.error {
+  color: #b91c1c;
+  font-size: 0.95rem;
+  padding: 10px 0;
+  margin-bottom: 8px;
+}
+
 @media (max-width: 768px) {
   .section {
     padding: 64px 16px 80px;

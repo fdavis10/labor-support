@@ -17,16 +17,12 @@ export function HowItWorks() {
         <div className={styles.head}>
           <span className={styles.eyebrow}>Процесс</span>
           <h2 className={styles.heading}>Как это работает</h2>
-          <p className={styles.lead}>
-            От заявки до выхода специалиста на проект — прозрачно и без лишних шагов.
-          </p>
+          <p className={styles.lead}>От заявки до выхода специалиста на проект — прозрачно и без лишних шагов.</p>
         </div>
         <ol className={styles.timeline}>
           {steps.map((step, i) => (
             <AnimatedItem key={step.num} as="li" delay={i * 100} className={styles.step}>
-              <span className={styles.stepMarker}>
-                <span className={styles.stepNum}>{step.num}</span>
-              </span>
+              <span className={styles.stepMarker}><span className={styles.stepNum}>{step.num}</span></span>
               <div className={styles.stepContent}>
                 <h3 className={styles.stepTitle}>{step.title}</h3>
                 <p className={styles.stepText}>{step.text}</p>

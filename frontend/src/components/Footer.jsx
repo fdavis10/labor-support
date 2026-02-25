@@ -17,16 +17,12 @@ export function Footer() {
           </a>
           <nav className={styles.nav}>
             {links.map(({ href, label }) => (
-              <a key={href} href={href} className={styles.link}>
-                {label}
-              </a>
+              <a key={href} href={href} className={styles.link}>{label}</a>
             ))}
           </nav>
         </div>
         <div className={styles.bottom}>
-          <p className={styles.copyright}>
-            © {new Date().getFullYear()} Трудовая Опора. Все права защищены.
-          </p>
+          <p className={styles.copyright}>© {new Date().getFullYear()} Трудовая Опора. Все права защищены.</p>
         </div>
       </div>
     </footer>

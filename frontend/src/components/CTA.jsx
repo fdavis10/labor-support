@@ -2,14 +2,39 @@ import { useState } from 'react'
 import { AnimatedSection } from './AnimatedSection'
 import styles from './CTA.module.css'
 
+const API_BASE = import.meta.env.VITE_API_URL || ''
+
 export function CTA() {
   const [sent, setSent] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState(null)
   const [form, setForm] = useState({ name: '', phone: '', comment: '' })
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    setSent(true)
-    setForm({ name: '', phone: '', comment: '' })
+    setError(null)
+    setLoading(true)
+    try {
+      const res = await fetch(`${API_BASE}/api/leads/`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: form.name.trim(),
+          phone: form.phone.trim(),
+          comment: (form.comment || '').trim(),
+        }),
+      })
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}))
+        throw new Error(data.detail || data.message || `Ошибка ${res.status}`)
+      }
+      setSent(true)
+      setForm({ name: '', phone: '', comment: '' })
+    } catch (err) {
+      setError(err.message || 'Не удалось отправить заявку. Попробуйте позже.')
+    } finally {
+      setLoading(false)
+    }
   }
 
   const handleChange = (e) => {
@@ -39,6 +64,7 @@ export function CTA() {
             </p>
           ) : (
             <form className={styles.form} onSubmit={handleSubmit}>
+              {error && <p className={styles.error}>{error}</p>}
               <label className={styles.label}>
                 <span className={styles.labelText}>Имя</span>
                 <input
@@ -49,6 +75,7 @@ export function CTA() {
                   className={styles.input}
                   placeholder="Как к вам обращаться"
                   required
+                  disabled={loading}
                 />
               </label>
               <label className={styles.label}>
@@ -61,6 +88,7 @@ export function CTA() {
                   className={styles.input}
                   placeholder="+7 (___) ___-__-__"
                   required
+                  disabled={loading}
                 />
               </label>
               <label className={styles.label}>
@@ -72,10 +100,11 @@ export function CTA() {
                   className={styles.textarea}
                   placeholder="Специализация, срок, объём работ..."
                   rows={3}
+                  disabled={loading}
                 />
               </label>
-              <button type="submit" className={styles.submit}>
-                Отправить заявку
+              <button type="submit" className={styles.submit} disabled={loading}>
+                {loading ? 'Отправка…' : 'Отправить заявку'}
               </button>
             </form>
           )}
