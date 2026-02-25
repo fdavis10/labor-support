@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Новая заявка</title>
+</head>
+<body style="margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background-color: #f4f4f5; color: #1f2937;">
+  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background-color: #f4f4f5; padding: 24px 0;">
+    <tr>
+      <td align="center">
+        <table role="presentation" width="600" cellspacing="0" cellpadding="0" style="max-width: 600px; background: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.07);">
+          <tr>
+            <td style="background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%); padding: 28px 32px; text-align: center;">
+              <h1 style="margin: 0; font-size: 22px; font-weight: 600; color: #ffffff; letter-spacing: -0.5px;">
+                Новая заявка с сайта
+              </h1>
+              <p style="margin: 8px 0 0; font-size: 14px; color: rgba(255,255,255,0.9);">
+                Трудовая опора
+              </p>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding: 32px;">
+              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border-collapse: collapse;">
+                <tr>
+                  <td style="padding: 12px 0; border-bottom: 1px solid #e5e7eb; vertical-align: top;">
+                    <span style="display: inline-block; font-size: 12px; font-weight: 600; color: #6b7280; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px;">Имя</span>
+                    <p style="margin: 0; font-size: 16px; font-weight: 500; color: #111827;">{{ name }}</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding: 12px 0; border-bottom: 1px solid #e5e7eb; vertical-align: top;">
+                    <span style="display: inline-block; font-size: 12px; font-weight: 600; color: #6b7280; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px;">Телефон</span>
+                    <p style="margin: 0; font-size: 16px;">
+                      <a href="tel:{{ phone }}" style="color: #2563eb; text-decoration: none; font-weight: 500;">{{ phone }}</a>
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding: 12px 0; vertical-align: top;">
+                    <span style="display: inline-block; font-size: 12px; font-weight: 600; color: #6b7280; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px;">Задача или комментарий</span>
+                    <p style="margin: 0; font-size: 15px; color: #374151; line-height: 1.5; white-space: pre-wrap;">{{ comment|default:"(не указан)" }}</p>
+                  </td>
+                </tr>
+              </table>
+              <p style="margin: 24px 0 0; font-size: 12px; color: #9ca3af;">
+                Заявка получена {{ created_at|date:"d.m.Y" }} в {{ created_at|date:"H:i" }}
+              </p>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding: 20px 32px; background-color: #f9fafb; border-top: 1px solid #e5e7eb; font-size: 12px; color: #6b7280;">
+              Это автоматическое уведомление с сайта Трудовая опора
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>

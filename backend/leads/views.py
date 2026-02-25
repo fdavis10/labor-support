@@ -2,6 +2,7 @@ import logging
 
 from django.conf import settings
 from django.core.mail import send_mail
+from django.template.loader import render_to_string
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework import status
@@ -33,17 +34,25 @@ class LeadCreateView(APIView):
         recipient = getattr(settings, 'LEADS_NOTIFICATION_EMAIL', None)
         if recipient:
             subject = 'Новая заявка с сайта'
-            body = (
+            body_text = (
                 f"Имя: {lead.name}\n"
                 f"Телефон: {lead.phone}\n"
-                f"Комментарий:\n{lead.comment or '(не указан)'}"
+                f"Комментарий:\n{lead.comment or '(не указан)'}\n\n"
+                f"Заявка получена {lead.created_at.strftime('%d.%m.%Y')} в {lead.created_at.strftime('%H:%M')}"
             )
+            body_html = render_to_string('leads/email_lead_notification.html', {
+                'name': lead.name,
+                'phone': lead.phone,
+                'comment': lead.comment,
+                'created_at': lead.created_at,
+            })
             try:
                 send_mail(
                     subject=subject,
-                    message=body,
+                    message=body_text,
                     from_email=settings.DEFAULT_FROM_EMAIL,
                     recipient_list=[recipient],
+                    html_message=body_html,
                     fail_silently=True,
                 )
             except Exception as e:
