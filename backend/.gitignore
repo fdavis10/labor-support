@@ -3,6 +3,7 @@ __pycache__
 .env
 .env.*
 !.env.example
+!.env.production
 db.sqlite3
 venv
 .venv
