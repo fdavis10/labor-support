@@ -26,7 +26,8 @@ export function CTA() {
       })
       if (!res.ok) {
         const data = await res.json().catch(() => ({}))
-        throw new Error(data.detail || data.message || `Ошибка ${res.status}`)
+        const msg = data.detail || data.message || (typeof data.errors === 'object' ? Object.entries(data.errors).map(([k, v]) => `${k}: ${Array.isArray(v) ? v.join(', ') : v}`).join('; ') : null) || `Ошибка ${res.status}`
+        throw new Error(msg)
       }
       setSent(true)
       setForm({ name: '', phone: '', comment: '' })
