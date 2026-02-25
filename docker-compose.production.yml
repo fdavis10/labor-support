@@ -9,10 +9,6 @@ services:
 
   backend:
     env_file: ./backend/.env
-    environment:
-      ALLOWED_HOSTS: ${ALLOWED_HOSTS}
-      CORS_ORIGINS: ${CORS_ORIGINS}
-      CSRF_TRUSTED_ORIGINS: ${CSRF_TRUSTED_ORIGINS:-}
     restart: unless-stopped
 
   web:
