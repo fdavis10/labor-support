@@ -1,0 +1,150 @@
+.section {
+  padding: 100px 24px 120px;
+  background: var(--color-bg-card);
+  position: relative;
+}
+
+.section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-border), transparent);
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.head {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 12px;
+}
+
+.heading {
+  font-size: clamp(1.85rem, 4vw, 2.5rem);
+  color: var(--color-primary);
+  margin-bottom: 14px;
+  letter-spacing: -0.02em;
+}
+
+.lead {
+  color: var(--color-text-muted);
+  font-size: 1.05rem;
+}
+
+.timeline {
+  list-style: none;
+  position: relative;
+  padding-left: 0;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: calc(8px + 24px - 1px);
+  top: 32px;
+  bottom: 32px;
+  width: 2px;
+  background: linear-gradient(180deg, var(--color-accent), var(--color-border));
+  border-radius: var(--radius-full);
+}
+
+.step {
+  position: relative;
+  display: flex;
+  gap: 28px;
+  align-items: flex-start;
+  padding: 24px 0;
+  padding-left: 8px;
+}
+
+.step:first-child {
+  padding-top: 0;
+}
+
+.stepMarker {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-surface);
+  border: 2px solid var(--color-accent);
+  color: var(--color-accent);
+  font-weight: 600;
+  font-size: 1.1rem;
+  border-radius: 50%;
+  position: relative;
+  z-index: 1;
+  transition: background var(--transition), color var(--transition), transform var(--transition);
+}
+
+.step:hover .stepMarker {
+  background: var(--color-accent);
+  color: var(--color-primary);
+  transform: scale(1.05);
+}
+
+.stepNum {
+  display: block;
+}
+
+.stepContent {
+  flex: 1;
+  min-width: 0;
+  padding-top: 4px;
+}
+
+.stepTitle {
+  font-size: 1.2rem;
+  color: var(--color-primary);
+  margin-bottom: 8px;
+}
+
+.stepText {
+  color: var(--color-text-muted);
+  font-size: 0.98rem;
+  line-height: 1.55;
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 64px 16px 80px;
+  }
+
+  .head {
+    margin-bottom: 40px;
+  }
+
+  .timeline::before {
+    left: calc(8px + 20px - 1px);
+    top: 24px;
+    bottom: 24px;
+  }
+
+  .step {
+    gap: 20px;
+    padding: 20px 0;
+  }
+
+  .stepMarker {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+}

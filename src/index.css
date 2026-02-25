@@ -1,0 +1,81 @@
+:root {
+  --font-family: 'Nunito', sans-serif;
+  --font-weight-heading: 600;
+  --font-weight-body: 300;
+  --color-bg: #0f172a;
+  --color-bg-alt: #1e293b;
+  --color-bg-card: #ffffff;
+  --color-surface: #f8fafc;
+  --color-primary: #0f172a;
+  --color-primary-light: #1e293b;
+  --color-accent: #f59e0b;
+  --color-accent-hover: #d97706;
+  --color-accent-soft: rgba(245, 158, 11, 0.12);
+  --color-text: #1e293b;
+  --color-text-muted: #64748b;
+  --color-text-inverse: #f8fafc;
+  --color-border: #e2e8f0;
+  --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.06);
+  --shadow-md: 0 8px 24px rgba(15, 23, 42, 0.1);
+  --shadow-lg: 0 20px 50px rgba(15, 23, 42, 0.15);
+  --shadow-accent: 0 4px 20px rgba(245, 158, 11, 0.35);
+  --radius: 4px;
+  --radius-lg: 6px;
+  --radius-full: 9999px;
+  --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --header-height: 76px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-body);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-text);
+  background: var(--color-surface);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-weight: var(--font-weight-heading);
+  line-height: 1.2;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+[id="services"],
+[id="how"],
+[id="why"],
+[id="contact"] {
+  scroll-margin-top: var(--header-height);
+}
