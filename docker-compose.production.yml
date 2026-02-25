@@ -24,8 +24,9 @@ services:
       - "443:443"
     volumes:
       - backend_static:/var/www/backend-static:ro
-      # Подставьте путь к сертификатам (Let's Encrypt или свои)
       - ./docker/certs:/etc/nginx/certs:ro
+      # Для Let's Encrypt: certbot пишет сюда, Nginx отдаёт /.well-known/acme-challenge/
+      - ./docker/acme-challenge:/var/www/acme:ro
     depends_on:
       - backend
     restart: unless-stopped
