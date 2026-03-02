@@ -23,7 +23,7 @@
   --radius-lg: 6px;
   --radius-full: 9999px;
   --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  --header-height: 76px;
+  --header-height: 64px;
 }
 
 *,
@@ -36,6 +36,13 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+}
+
+section,
+footer {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
 }
 
 body {
@@ -76,6 +83,7 @@ button {
 [id="services"],
 [id="how"],
 [id="why"],
+[id="news"],
 [id="contact"] {
   scroll-margin-top: var(--header-height);
 }

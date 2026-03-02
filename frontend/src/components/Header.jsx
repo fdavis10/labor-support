@@ -2,8 +2,11 @@ import { useState } from 'react'
 import styles from './Header.module.css'
 
 const navItems = [
+  { id: 'about', label: 'О компании' },
   { id: 'services', label: 'Услуги' },
-  { id: 'how', label: 'Как это работает' },
+  { id: 'workers', label: 'Вакансии' },
+  { id: 'partners', label: 'Партнёрам' },
+  { id: 'news', label: 'Новости' },
   { id: 'why', label: 'Преимущества' },
   { id: 'contact', label: 'Контакты' },
 ]

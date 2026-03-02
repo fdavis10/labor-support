@@ -62,10 +62,22 @@
 }
 
 .phone {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   font-size: 1.6rem;
   font-weight: 600;
   color: var(--color-text-inverse);
   transition: color var(--transition);
+}
+
+.phoneIcon {
+  flex-shrink: 0;
+  color: var(--color-accent);
+}
+
+.submitIcon {
+  flex-shrink: 0;
 }
 
 .phone:hover {
@@ -127,6 +139,10 @@
 
 .submit {
   padding: 16px 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
   background: var(--color-accent);
   color: var(--color-primary);
   border: none;

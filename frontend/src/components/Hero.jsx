@@ -1,9 +1,10 @@
+import { Building2, Building, Users } from 'lucide-react'
 import styles from './Hero.module.css'
 
 const stats = [
-  { value: '12+', label: 'лет на рынке' },
-  { value: '500+', label: 'компаний-клиентов' },
-  { value: '1000+', label: 'специалистов в базе' },
+  { value: '12+', label: 'лет на рынке', icon: Building2 },
+  { value: '500+', label: 'компаний-клиентов', icon: Building },
+  { value: '1000+', label: 'специалистов в базе', icon: Users },
 ]
 
 export function Hero() {
@@ -25,23 +26,26 @@ export function Hero() {
       <div className={styles.content}>
         <p className={styles.kicker}>Аутстаффинг персонала</p>
         <h1 className={styles.title}>
-          Персонал для вашего бизнеса —
-          <span className={styles.titleAccent}> без оформления в штат</span>
+          Кадры для стройки, промышленности и логистики по всей России
         </h1>
         <p className={styles.subtitle}>
-          IT, бухгалтерия, строительство, офис, логистика. Подключайте одного специалиста или команду на нужный срок. Договор — после того, как вы выбрали кандидата.
+          Предоставляем квалифицированных рабочих на ваши объекты. Работаем официально, закрываем потребность в персонале от 1 дня.
         </p>
         <div className={styles.actions}>
           <button type="button" className={styles.primaryBtn} onClick={scrollToContact}>
-            Оставить заявку на подбор
+            Подобрать персонал
           </button>
-          <a href="#how" className={styles.secondaryBtn}>
-            Как это работает
+          <a href="#partners" className={styles.secondaryBtn}>
+            Стать партнёром
+          </a>
+          <a href="#workers" className={styles.secondaryBtn}>
+            Работникам
           </a>
         </div>
         <ul className={styles.stats} aria-label="Статистика">
-          {stats.map(({ value, label }) => (
+          {stats.map(({ value, label, icon: Icon }) => (
             <li key={label} className={styles.stat}>
+              {Icon && <span className={styles.statIcon}><Icon size={24} strokeWidth={2} /></span>}
               <span className={styles.statValue}>{value}</span>
               <span className={styles.statLabel}>{label}</span>
             </li>

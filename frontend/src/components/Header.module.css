@@ -13,12 +13,12 @@
 .wrap {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 20px;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 24px;
+  gap: 16px;
 }
 
 .logo {
@@ -27,7 +27,7 @@
 }
 
 .logoImg {
-  height: 120px;
+  height: 84px;
   width: auto;
   display: block;
   object-fit: contain;
@@ -38,15 +38,15 @@
 .nav {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 2px;
 }
 
 .navLink {
-  padding: 10px 16px;
+  padding: 6px 12px;
   border: none;
   background: none;
   color: rgba(248, 250, 252, 0.85);
-  font-size: 0.95rem;
+  font-size: 0.875rem;
   font-weight: 300;
   border-radius: var(--radius);
   transition: background var(--transition), color var(--transition);
@@ -58,12 +58,12 @@
 }
 
 .cta {
-  padding: 12px 24px;
+  padding: 8px 18px;
   background: var(--color-accent);
   color: var(--color-primary);
   border: none;
   border-radius: var(--radius);
-  font-size: 0.95rem;
+  font-size: 0.875rem;
   font-weight: 600;
   transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
 }
@@ -130,7 +130,8 @@
   .navLink {
     width: 100%;
     text-align: left;
-    padding: 14px 18px;
+    padding: 10px 16px;
+    font-size: 0.9rem;
   }
 
   .cta {

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { AnimatedSection } from './AnimatedSection'
+import { Phone, Send } from 'lucide-react'
 import styles from './CTA.module.css'
 
 const API_BASE = import.meta.env.VITE_API_URL || ''
@@ -54,7 +55,10 @@ export function CTA() {
             Опишите задачу — подберём специалистов и перезвоним в течение рабочего дня.
           </p>
           <div className={styles.contacts}>
-            <a href="tel:+78001234567" className={styles.phone}>8 800 123-45-67</a>
+            <a href="tel:+78001234567" className={styles.phone}>
+              <Phone size={20} className={styles.phoneIcon} />
+              8 800 123-45-67
+            </a>
             <span className={styles.hint}>Бесплатно по России</span>
           </div>
         </div>
@@ -105,7 +109,12 @@ export function CTA() {
                 />
               </label>
               <button type="submit" className={styles.submit} disabled={loading}>
-                {loading ? 'Отправка…' : 'Отправить заявку'}
+                {loading ? 'Отправка…' : (
+                  <>
+                    <Send size={18} className={styles.submitIcon} />
+                    Отправить заявку
+                  </>
+                )}
               </button>
             </form>
           )}

@@ -1,56 +1,93 @@
 import { AnimatedSection } from './AnimatedSection'
 import { AnimatedItem } from './AnimatedItem'
+import { Briefcase, Users, MapPin } from 'lucide-react'
 import styles from './Services.module.css'
 
-const categories = [
-  { id: 'it', title: 'IT и разработка', description: 'Разработчики, тестировщики, аналитики, DevOps — под ваш стек и проект.', image: '/images/it.jpg', featured: true },
-  { id: 'accounting', title: 'Бухгалтерия и финансы', description: 'Бухгалтеры, главбухи, экономисты для учёта и отчётности.', image: '/images/accounting.jpg', featured: false },
-  { id: 'construction', title: 'Строительство', description: 'Инженеры, прорабы, рабочие специальности для объектов.', image: '/images/construction.jpg', featured: false },
-  { id: 'office', title: 'Офисный персонал', description: 'Администраторы, HR, секретари, помощники руководителя.', image: '/images/office.jpg', featured: false },
-  { id: 'logistics', title: 'Логистика и склад', description: 'Кладовщики, водители, комплектовщики для складов и доставки.', image: '/images/logistics.jpg', featured: false },
-  { id: 'other', title: 'Другие отрасли', description: 'Подбор под любые задачи: производство, торговля, услуги.', image: '/images/other.jpg', featured: false },
+const services = [
+  {
+    id: 'outstaff',
+    icon: Briefcase,
+    label: 'Аутстаффинг (предоставление персонала)',
+    title: 'Персонал под ключ',
+    text: 'Оформляем сотрудников в свой штат, вы управляете процессом. Идеально для сезонных работ, госзаказов и объектов с переменной нагрузкой.',
+    items: [
+      'Поиск и проверка кандидатов',
+      'Официальное оформление',
+      'Зарплата, налоги, отчёты — всё берём на себя',
+      'Быстрая замена при необходимости',
+    ],
+    button: 'Заказать расчёт',
+  },
+  {
+    id: 'recruitment',
+    icon: Users,
+    label: 'Подбор персонала',
+    title: 'Найдём рабочих под ваш объект',
+    text: 'Предоставляем кандидатов с проверенными документами и опытом.',
+    items: [
+      'Срок подбора: от 2 дней',
+      'Гарантия замены',
+    ],
+    button: 'Оставить заявку',
+  },
+  {
+    id: 'relocation',
+    icon: MapPin,
+    label: 'Релокация бригад',
+    title: 'Организуем переезд рабочих из регионов и СНГ',
+    text: 'Привозим бригады из стран СНГ, а также из российских регионов с профицитом кадров.',
+    items: [
+      'Полное юридическое сопровождение',
+      'Оформление патентов и разрешений',
+      'Проживание на объекте',
+      'Компенсация проезда',
+    ],
+    button: 'Подробнее',
+  },
 ]
 
 export function Services() {
-  const featured = categories.find((c) => c.featured)
-  const rest = categories.filter((c) => !c.featured)
+  const scrollToContact = () => {
+    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
+  }
+
   return (
     <AnimatedSection id="services" className={styles.section}>
       <div className={styles.container}>
         <div className={styles.head}>
-          <span className={styles.eyebrow}>Направления</span>
-          <h2 className={styles.heading}>Подбор персонала во всех востребованных сферах</h2>
-          <p className={styles.lead}>Один специалист или команда — на проект или на постоянной основе. Быстро и без лишних формальностей.</p>
+          <span className={styles.eyebrow}>Услуги</span>
+          <h2 className={styles.heading}>Что мы предлагаем бизнесу</h2>
         </div>
         <div className={styles.grid}>
-          {featured && (
-            <AnimatedItem as="article" delay={0} className={styles.cardFeatured}>
-              <a href="#contact" className={styles.cardLink}>
-                <div className={styles.cardImageWrap}>
-                  <img src={featured.image} alt="" className={styles.cardImage} />
-                  <span className={styles.cardBadge}>01</span>
-                </div>
-                <div className={styles.cardBody}>
-                  <h3 className={styles.cardTitle}>{featured.title}</h3>
-                  <p className={styles.cardDesc}>{featured.description}</p>
-                </div>
-              </a>
+          {services.map((service, i) => {
+            const Icon = service.icon
+            return (
+            <AnimatedItem key={service.id} as="article" delay={i * 80} className={styles.card}>
+              <div className={styles.cardBody}>
+                {Icon && (
+                  <span className={styles.cardIcon}>
+                    <Icon size={28} strokeWidth={1.5} />
+                  </span>
+                )}
+                <p className={styles.cardLabel}>{service.label}</p>
+                <h3 className={styles.cardTitle}>{service.title}</h3>
+                <p className={styles.cardText}>{service.text}</p>
+                <ul className={styles.cardList}>
+                  {service.items.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+                <button
+                  type="button"
+                  className={i === 0 ? styles.primaryBtn : styles.secondaryBtn}
+                  onClick={scrollToContact}
+                >
+                  {service.button}
+                </button>
+              </div>
             </AnimatedItem>
-          )}
-          {rest.map((item, i) => (
-            <AnimatedItem key={item.id} as="article" delay={(i + 1) * 80} className={styles.card}>
-              <a href="#contact" className={styles.cardLink}>
-                <div className={styles.cardImageWrap}>
-                  <img src={item.image} alt="" className={styles.cardImage} />
-                  <span className={styles.cardBadge}>{String(i + 2).padStart(2, '0')}</span>
-                </div>
-                <div className={styles.cardBody}>
-                  <h3 className={styles.cardTitle}>{item.title}</h3>
-                  <p className={styles.cardDesc}>{item.description}</p>
-                </div>
-              </a>
-            </AnimatedItem>
-          ))}
+            )
+          })}
         </div>
       </div>
     </AnimatedSection>

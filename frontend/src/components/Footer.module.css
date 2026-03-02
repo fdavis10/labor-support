@@ -20,6 +20,52 @@
   border-bottom: 1px solid rgba(248, 250, 252, 0.1);
 }
 
+.documents {
+  padding: 28px 0;
+  border-bottom: 1px solid rgba(248, 250, 252, 0.1);
+}
+
+.documentsTitle {
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: rgba(248, 250, 252, 0.9);
+  margin-bottom: 12px;
+}
+
+.documentsList {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+}
+
+.documentsList li {
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.docIcon {
+  flex-shrink: 0;
+  color: var(--color-accent);
+}
+
+.docLink {
+  color: rgba(248, 250, 252, 0.8);
+  transition: color var(--transition);
+}
+
+.docLink:hover {
+  color: var(--color-accent);
+}
+
+.docPlaceholder {
+  color: rgba(248, 250, 252, 0.5);
+}
+
 .logo {
   display: flex;
   align-items: center;
