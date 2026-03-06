@@ -67,6 +67,32 @@
   border-radius: var(--radius);
 }
 
+.cardImageWrap {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  margin-bottom: 16px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--color-border);
+}
+
+.cardImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.status,
+.error {
+  text-align: center;
+  padding: 24px;
+  color: var(--color-text-muted);
+}
+
+.error {
+  color: #b91c1c;
+}
+
 .cardDate {
   display: block;
   font-size: 0.85rem;

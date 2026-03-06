@@ -1,42 +1,16 @@
-import { Header } from './components/Header'
-import { Hero } from './components/Hero'
-import { About } from './components/About'
-import { Services } from './components/Services'
-import { ProblemSolution } from './components/ProblemSolution'
-import { Specialties } from './components/Specialties'
-import { Vacancies } from './components/Vacancies'
-import { Partners } from './components/Partners'
-import { Calculator } from './components/Calculator'
-import { CalculatorButton } from './components/CalculatorButton'
-import { OurPartners } from './components/OurPartners'
-import { News } from './components/News'
-import { WhyUs } from './components/WhyUs'
-import { CTA } from './components/CTA'
-import { Footer } from './components/Footer'
-import { ScrollToTop } from './components/ScrollToTop'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { MainSite } from './pages/MainSite'
+import { AdminApp } from './pages/Admin/AdminApp'
+import { ADMIN_PATH } from './config'
 
 function App() {
   return (
-    <>
-      <Header />
-      <main>
-        <Hero />
-        <About />
-        <Services />
-        <ProblemSolution />
-        <Specialties />
-        <Vacancies />
-        <Partners />
-        <Calculator />
-        <OurPartners />
-        <WhyUs />
-        <News />
-        <CTA />
-      </main>
-      <Footer />
-      <CalculatorButton />
-      <ScrollToTop />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path={`/${ADMIN_PATH}/*`} element={<AdminApp />} />
+        <Route path="*" element={<MainSite />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 
