@@ -131,6 +131,8 @@
   }
 
   .fact:last-child {
+    grid-column: 1;
+    justify-self: stretch;
     max-width: none;
   }
 

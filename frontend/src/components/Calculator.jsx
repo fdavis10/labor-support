@@ -36,25 +36,30 @@ export function Calculator({ inModal = false, onClose }) {
         <div className={styles.calc}>
           <div className={styles.inputs}>
             <label className={styles.label}>
-              <span className={styles.labelText}>Количество сотрудников</span>
+              <span className={styles.labelText}>
+                Количество сотрудников: <strong className={styles.labelValue}>{employees}</strong>
+              </span>
               <input
-                type="number"
+                type="range"
                 min={1}
-                max={10000}
+                max={500}
                 value={employees}
-                onChange={(e) => setEmployees(Number(e.target.value) || 0)}
-                className={styles.input}
+                onChange={(e) => setEmployees(Number(e.target.value))}
+                className={styles.slider}
               />
             </label>
             <label className={styles.label}>
-              <span className={styles.labelText}>Средняя зарплата в месяц, ₽</span>
+              <span className={styles.labelText}>
+                Средняя зарплата в месяц: <strong className={styles.labelValue}>{formatRubles(salary)}</strong>
+              </span>
               <input
-                type="number"
-                min={0}
+                type="range"
+                min={20000}
+                max={200000}
                 step={5000}
                 value={salary}
-                onChange={(e) => setSalary(Number(e.target.value) || 0)}
-                className={styles.input}
+                onChange={(e) => setSalary(Number(e.target.value))}
+                className={styles.slider}
               />
             </label>
           </div>
