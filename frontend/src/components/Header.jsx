@@ -25,7 +25,7 @@ export function Header() {
     <header className={styles.header}>
       <div className={styles.wrap}>
         <a href="#" className={styles.logo} onClick={(e) => { e.preventDefault(); scrollTo('hero'); }} aria-label="ТрудПоддержка — на главную">
-          <img src="/new_logo.svg" alt="Трудовая Опора" className={styles.logoImg} />
+          <img src="/new_logo_2.svg" alt="Трудовая Опора" className={styles.logoImg} />
         </a>
         <nav className={`${styles.nav} ${menuOpen ? styles.navOpen : ''}`}>
           {navItems.map(({ id, label }) => (

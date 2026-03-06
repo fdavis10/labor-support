@@ -6,6 +6,7 @@ import { ProblemSolution } from './components/ProblemSolution'
 import { Specialties } from './components/Specialties'
 import { Vacancies } from './components/Vacancies'
 import { Partners } from './components/Partners'
+import { Calculator } from './components/Calculator'
 import { CalculatorButton } from './components/CalculatorButton'
 import { OurPartners } from './components/OurPartners'
 import { News } from './components/News'
@@ -26,6 +27,7 @@ function App() {
         <Specialties />
         <Vacancies />
         <Partners />
+        <Calculator />
         <OurPartners />
         <WhyUs />
         <News />

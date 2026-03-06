@@ -21,13 +21,16 @@ const services = [
   {
     id: 'recruitment',
     icon: Users,
-    label: 'Подбор персонала',
-    title: 'Найдём рабочих под ваш объект',
-    text: 'Предоставляем кандидатов с проверенными документами и опытом.',
-    items: [
-      'Срок подбора: от 2 дней',
-      'Гарантия замены',
+    label: 'Подбор персонала под ключ',
+    title: 'Найдём людей туда, где другие опустили руки',
+    text: 'Устали от вакансий, которые висят месяцами? Кандидаты не приходят или не подходят? Мы закрываем любые позиции — от разнорабочего до узкого специалиста — с гарантией качества и замены.',
+    advantageBlocks: [
+      {
+        title: 'Сроки: от 2 дней',
+        text: 'Базовые вакансии закрываем за 1–3 дней. Сложные и редкие специалисты за 1–2 недели. У нас своя база кандидатов, доступ к региональным и международным рынкам труда. Работаем точечно и быстро.',
+      },
     ],
+    items: [],
     button: 'Оставить заявку',
   },
   {
@@ -72,11 +75,22 @@ export function Services() {
                 <p className={styles.cardLabel}>{service.label}</p>
                 <h3 className={styles.cardTitle}>{service.title}</h3>
                 <p className={styles.cardText}>{service.text}</p>
-                <ul className={styles.cardList}>
-                  {service.items.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
+                {service.advantageBlocks?.length > 0 ? (
+                  <div className={styles.advantageBlocks}>
+                    {service.advantageBlocks.map((block, j) => (
+                      <div key={j} className={styles.advantageBlock}>
+                        <span className={styles.advantageTitle}>{block.title}</span>
+                        <p className={styles.advantageText}>{block.text}</p>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <ul className={styles.cardList}>
+                    {service.items.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                )}
                 <button
                   type="button"
                   className={i === 0 ? styles.primaryBtn : styles.secondaryBtn}

@@ -20,6 +20,36 @@
   border-bottom: 1px solid rgba(248, 250, 252, 0.1);
 }
 
+.social {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 28px 0;
+  border-bottom: 1px solid rgba(248, 250, 252, 0.1);
+}
+
+.socialLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  color: rgba(248, 250, 252, 0.85);
+  border-radius: var(--radius);
+  transition: color var(--transition), background var(--transition);
+}
+
+.socialLink:hover {
+  color: var(--color-accent);
+  background: rgba(248, 250, 252, 0.08);
+}
+
+.socialIcon {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+}
+
 .documents {
   padding: 28px 0;
   border-bottom: 1px solid rgba(248, 250, 252, 0.1);

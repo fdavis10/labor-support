@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
 import { Calculator as CalcIcon } from 'lucide-react'
-import { Calculator } from './Calculator'
 import styles from './CalculatorButton.module.css'
 
 const TOOLTIP_DELAY_MS = 1500
@@ -50,7 +49,6 @@ function playTones(ctx) {
 }
 
 export function CalculatorButton() {
-  const [modalOpen, setModalOpen] = useState(false)
   const [tooltipVisible, setTooltipVisible] = useState(false)
   const [tooltipDismissed, setTooltipDismissed] = useState(false)
   const [userInteracted, setUserInteracted] = useState(false)
@@ -89,43 +87,28 @@ export function CalculatorButton() {
     }
   }, [tooltipDismissed, userInteracted])
 
-  const openModal = () => {
+  const scrollToCalculator = () => {
     setTooltipVisible(false)
     setTooltipDismissed(true)
-    setModalOpen(true)
+    const el = document.getElementById('calculator')
+    if (el) el.scrollIntoView({ behavior: 'smooth' })
   }
 
   return (
-    <>
-      <div className={styles.wrap}>
-        {tooltipVisible && (
-          <div className={styles.tooltip} role="status">
-            Посчитайте экономию!
-          </div>
-        )}
-        <button
-          type="button"
-          className={styles.btn}
-          onClick={openModal}
-          aria-label="Калькулятор экономии"
-        >
-          <CalcIcon className={styles.icon} size={24} strokeWidth={2} />
-        </button>
-      </div>
-
-      {modalOpen && (
-        <div
-          className={styles.overlay}
-          onClick={() => setModalOpen(false)}
-          role="dialog"
-          aria-modal="true"
-          aria-labelledby="calculator-heading"
-        >
-          <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
-            <Calculator inModal onClose={() => setModalOpen(false)} />
-          </div>
+    <div className={styles.wrap}>
+      {tooltipVisible && (
+        <div className={styles.tooltip} role="status">
+          Посчитайте экономию!
         </div>
       )}
-    </>
+      <button
+        type="button"
+        className={styles.btn}
+        onClick={scrollToCalculator}
+        aria-label="Калькулятор экономии"
+      >
+        <CalcIcon className={styles.icon} size={24} strokeWidth={2} />
+      </button>
+    </div>
   )
 }
