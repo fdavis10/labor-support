@@ -46,6 +46,34 @@
   line-height: 1.7;
 }
 
+.subheading {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: 12px;
+}
+
+.practiceList {
+  list-style: none;
+  padding-left: 0;
+}
+
+.practiceList li {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 12px;
+  font-size: 1.08rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+.practiceList li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--color-accent);
+}
+
 .facts {
   list-style: none;
   display: grid;
@@ -64,6 +92,12 @@
   font-size: 1rem;
   font-weight: 500;
   color: var(--color-primary);
+}
+
+.fact:last-child {
+  grid-column: 1 / -1;
+  justify-self: center;
+  max-width: calc(50% - 8px);
 }
 
 .factIcon {
@@ -94,6 +128,10 @@
   .facts {
     grid-template-columns: 1fr;
     gap: 12px;
+  }
+
+  .fact:last-child {
+    max-width: none;
   }
 
   .fact {

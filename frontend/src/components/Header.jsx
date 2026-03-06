@@ -4,6 +4,7 @@ import styles from './Header.module.css'
 const navItems = [
   { id: 'about', label: 'О компании' },
   { id: 'services', label: 'Услуги' },
+  { id: 'specialties', label: 'Специальности' },
   { id: 'workers', label: 'Вакансии' },
   { id: 'partners', label: 'Партнёрам' },
   { id: 'news', label: 'Новости' },
@@ -24,7 +25,7 @@ export function Header() {
     <header className={styles.header}>
       <div className={styles.wrap}>
         <a href="#" className={styles.logo} onClick={(e) => { e.preventDefault(); scrollTo('hero'); }} aria-label="ТрудПоддержка — на главную">
-          <img src="/logo.svg" alt="ТрудПоддержка" className={styles.logoImg} />
+          <img src="/new_logo.svg" alt="Трудовая Опора" className={styles.logoImg} />
         </a>
         <nav className={`${styles.nav} ${menuOpen ? styles.navOpen : ''}`}>
           {navItems.map(({ id, label }) => (

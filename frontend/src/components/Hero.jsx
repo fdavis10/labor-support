@@ -2,9 +2,9 @@ import { Building2, Building, Users } from 'lucide-react'
 import styles from './Hero.module.css'
 
 const stats = [
-  { value: '12+', label: 'лет на рынке', icon: Building2 },
-  { value: '500+', label: 'компаний-клиентов', icon: Building },
-  { value: '1000+', label: 'специалистов в базе', icon: Users },
+  { value: '5+', label: 'лет на рынке', icon: Building2 },
+  { value: '50+', label: 'компаний-клиентов', icon: Building },
+  { value: '600+', label: 'специалистов в базе', icon: Users },
 ]
 
 export function Hero() {
@@ -26,10 +26,11 @@ export function Hero() {
       <div className={styles.content}>
         <p className={styles.kicker}>Аутстаффинг персонала</p>
         <h1 className={styles.title}>
-          Кадры для стройки, промышленности и логистики по всей России
+          Главная задача бизнеса — работать. Наша — закрывать вопросы с персоналом.
         </h1>
+        <p className={styles.subtitleHeading}>Трудовая опора — мы там где работа</p>
         <p className={styles.subtitle}>
-          Предоставляем квалифицированных рабочих на ваши объекты. Работаем официально, закрываем потребность в персонале от 1 дня.
+          Ваш операционный партнёр по управлению персоналом. Мы закрываем все вопросы, связанные с линейным и рабочим персоналом, чтобы вы могли сосредоточиться на развитии бизнеса.
         </p>
         <div className={styles.actions}>
           <button type="button" className={styles.primaryBtn} onClick={scrollToContact}>

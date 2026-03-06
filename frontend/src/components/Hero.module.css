@@ -67,9 +67,17 @@
 .title {
   font-size: clamp(2rem, 5.5vw, 3.5rem);
   color: var(--color-text-inverse);
-  margin-bottom: 20px;
+  margin-bottom: 12px;
   letter-spacing: -0.03em;
   line-height: 1.15;
+}
+
+.subtitleHeading {
+  font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+  font-weight: 500;
+  color: var(--color-accent);
+  margin-bottom: 24px;
+  letter-spacing: -0.02em;
 }
 
 .titleAccent {

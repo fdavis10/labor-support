@@ -4,6 +4,7 @@ import styles from './Footer.module.css'
 const links = [
   { href: '#about', label: 'О компании' },
   { href: '#services', label: 'Услуги' },
+  { href: '#specialties', label: 'Специальности' },
   { href: '#workers', label: 'Вакансии' },
   { href: '#partners', label: 'Партнёрам' },
   { href: '#news', label: 'Новости' },
@@ -23,7 +24,7 @@ export function Footer() {
       <div className={styles.wrap}>
         <div className={styles.top}>
           <a href="#" className={styles.logo} aria-label="ТрудПоддержка — на главную">
-            <img src="/logo.svg" alt="ТрудПоддержка" className={styles.logoImg} />
+            <img src="/new_logo.svg" alt="Трудовая Опора" className={styles.logoImg} />
           </a>
           <nav className={styles.nav}>
             {links.map(({ href, label }) => (
