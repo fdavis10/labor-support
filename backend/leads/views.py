@@ -8,9 +8,12 @@ from django.views.decorators.csrf import csrf_exempt
 from rest_framework import status
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from rest_framework.generics import ListAPIView
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.authentication import TokenAuthentication
 
 from .models import Lead
-from .serializers import LeadSerializer
+from .serializers import LeadSerializer, LeadAdminSerializer
 
 logger = logging.getLogger(__name__)
 
@@ -62,3 +65,11 @@ class LeadCreateView(APIView):
             LeadSerializer(lead).data,
             status=status.HTTP_201_CREATED,
         )
+
+
+class LeadAdminListView(ListAPIView):
+    """Список заявок для админки (по скрытому пути, с токеном)."""
+    queryset = Lead.objects.all().order_by('-created_at')
+    serializer_class = LeadAdminSerializer
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAuthenticated]

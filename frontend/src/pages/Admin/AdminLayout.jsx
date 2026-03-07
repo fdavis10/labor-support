@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Outlet, useNavigate, Link } from 'react-router-dom'
-import { Newspaper, Users, User, LogOut } from 'lucide-react'
+import { Newspaper, Phone, Users, User, LogOut } from 'lucide-react'
 import { logout, fetchCurrentUser } from './api'
 import { ADMIN_PATH } from '../../config'
 import styles from './Admin.module.css'
@@ -31,6 +31,10 @@ export function AdminLayout() {
           <Link to={`/${ADMIN_PATH}`} className={styles.navLink}>
             <Newspaper size={20} />
             Новости
+          </Link>
+          <Link to={`/${ADMIN_PATH}/leads`} className={styles.navLink}>
+            <Phone size={20} />
+            Заявки
           </Link>
           {currentUser?.is_superuser && (
             <Link to={`/${ADMIN_PATH}/users`} className={styles.navLink}>

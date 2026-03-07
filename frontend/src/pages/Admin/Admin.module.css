@@ -360,6 +360,16 @@
   color: #64748b;
 }
 
+.phoneLink {
+  color: #0f172a;
+  text-decoration: none;
+}
+
+.phoneLink:hover {
+  color: #f59e0b;
+  text-decoration: underline;
+}
+
 .thActions,
 .tdActions {
   width: 120px;

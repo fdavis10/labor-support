@@ -6,6 +6,7 @@ import { NewsList } from './NewsList'
 import { NewsForm } from './NewsForm'
 import { Profile } from './Profile'
 import { UserList } from './UserList'
+import { LeadList } from './LeadList'
 
 const token = () => localStorage.getItem('admin_token')
 
@@ -15,6 +16,7 @@ export function AdminApp() {
       <Route path="login" element={token() ? <Navigate to={`/${ADMIN_PATH}`} replace /> : <AdminLogin />} />
       <Route path="*" element={token() ? <AdminLayout /> : <Navigate to={`/${ADMIN_PATH}/login`} replace />}>
         <Route index element={<NewsList />} />
+        <Route path="leads" element={<LeadList />} />
         <Route path="news/new" element={<NewsForm />} />
         <Route path="news/:id/edit" element={<NewsForm />} />
         <Route path="profile" element={<Profile />} />

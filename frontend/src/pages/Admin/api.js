@@ -84,6 +84,17 @@ export async function deleteNews(id) {
   if (!res.ok) throw new Error('Ошибка удаления')
 }
 
+// --- Заявки на звонок ---
+
+export async function fetchLeadsList() {
+  const res = await fetch(`${ADMIN_API}/leads/`, {
+    headers: { Authorization: `Token ${getToken()}` },
+  })
+  if (res.status === 401) throw new Error('UNAUTHORIZED')
+  if (!res.ok) throw new Error('Ошибка загрузки заявок')
+  return res.json()
+}
+
 // --- Текущий пользователь (профиль) ---
 
 export async function fetchCurrentUser() {

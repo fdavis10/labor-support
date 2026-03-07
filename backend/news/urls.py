@@ -10,6 +10,7 @@ from .views import (
     UserListCreateView,
     CurrentUserView,
 )
+from leads.views import LeadAdminListView
 
 # Скрытый префикс админ-API (не индексировать, не светить в интерфейсе)
 ADMIN_PREFIX = getattr(settings, 'ADMIN_API_PREFIX', 'c8k2m9p5')
@@ -23,5 +24,6 @@ urlpatterns = [
     path(f'{ADMIN_PREFIX}/auth/login/', AdminObtainTokenView.as_view(), name='admin-login'),
     path(f'{ADMIN_PREFIX}/users/', UserListCreateView.as_view(), name='admin-users'),
     path(f'{ADMIN_PREFIX}/users/me/', CurrentUserView.as_view(), name='admin-profile'),
+    path(f'{ADMIN_PREFIX}/leads/', LeadAdminListView.as_view(), name='admin-leads'),
     path(f'{ADMIN_PREFIX}/', include(router.urls)),
 ]
